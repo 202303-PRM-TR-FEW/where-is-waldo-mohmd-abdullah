@@ -1,15 +1,14 @@
-const example = [
-  ["A", "A", "A"],
-  ["A", "A", "B"],
-  ["A", "A", "A"]];
+const example =   [["O", "O", "O", "O"],
+["O", "O", "O", "O"],
+["O", "O", "O", "O"],
+["O", "O", "O", "O"],
+["O", "O", "O", "O"],
+["P", "O", "O", "O"]]
 
 const whereIsWaldo = (matrix) => {
   const removeDuplicate = matrix.map(arr => [...new Set(arr)]);
-  console.log("01", removeDuplicate);
-  const locateRow = removeDuplicate.findIndex(el => el.length > 1)
-  console.log("02", locateRow);
-  const locateColumn = matrix[locateRow].findIndex(col => col != matrix[locateRow][0]);
-  console.log(locateColumn);
+  const locateRow = removeDuplicate.findIndex(el => el.length > 1);
+  const locateColumn = matrix[locateRow].findIndex(col => col != matrix[locateRow != matrix.length -1 ? locateRow + 1 : locateRow - 1][matrix[locateRow].length - 1]);
   return [locateRow + 1, locateColumn + 1]
 }
 console.log(whereIsWaldo(example));
